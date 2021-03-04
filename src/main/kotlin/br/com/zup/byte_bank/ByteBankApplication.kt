@@ -24,11 +24,27 @@ fun main() {
 
     println("---------------------------------------------------------")
     println("Depositando na conta do Alex:")
-    deposita(contaAlex, 50.0)
+    contaAlex.deposita(50.0)
     println("Saldo atualizado: ${contaAlex.saldoConta}")
     println("---------------------------------------------------------")
     println("Depositando na conta da Fran:")
-    deposita(contaFran, 70.0)
+    contaFran.deposita(70.0)
+    println("Saldo atualizado: ${contaFran.saldoConta}")
+    println("---------------------------------------------------------")
+    println("Sacando da conta do Alex")
+    contaAlex.saca(250.0)
+    println("Saldo atualizado: ${contaAlex.saldoConta}")
+    println("---------------------------------------------------------")
+    println("Sacando da conta da Fran")
+    contaFran.saca(100.0)
+    println("Saldo atualizado: ${contaFran.saldoConta}")
+    println("---------------------------------------------------------")
+    println("Teste saque em excesso Alex")
+    contaAlex.saca(100.0)
+    println("Saldo atualizado: ${contaAlex.saldoConta}")
+    println("---------------------------------------------------------")
+    println("Teste saque em excesso Fran")
+    contaFran.saca(500.0)
     println("Saldo atualizado: ${contaFran.saldoConta}")
 
 
@@ -38,10 +54,16 @@ class Conta() {
     var titular = ""
     var numeroConta = 0
     var saldoConta = 0.0
-}
 
-fun deposita(conta: Conta, valor: Double) {
-    conta.saldoConta += valor
+    fun deposita(valor: Double) {
+        saldoConta += valor
+    }
+
+    fun saca(valor: Double) {
+        if(saldoConta >= valor){
+            saldoConta -= valor
+        }
+    }
 }
 
 fun testaLacos() {
