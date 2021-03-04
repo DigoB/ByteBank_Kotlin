@@ -3,6 +3,34 @@ package br.com.zup.byte_bank
 fun main() {
     println("Bem vindo ao Byte Bank!")
 
+    val contaAlex = Conta()
+    contaAlex.titular = "Alex"
+    contaAlex.numeroConta = 1000
+    contaAlex.saldoConta = 200.0
+
+    println("Titular da conta: ${contaAlex.titular}")
+    println("Numero da conta: ${contaAlex.numeroConta}")
+    println("Saldo da conta: ${contaAlex.saldoConta}")
+    println("---------------------------------------------------------")
+
+    val contaFran = Conta()
+    contaFran.titular = "Fran"
+    contaFran.numeroConta = 1001
+    contaFran.saldoConta = 300.0
+
+    println("Titular da conta: ${contaFran.titular}")
+    println("Numero da conta: ${contaFran.numeroConta}")
+    println("Saldo da conta: ${contaFran.saldoConta}")
+
+}
+
+class Conta() {
+    var titular = ""
+    var numeroConta = 0
+    var saldoConta = 0.0
+}
+
+fun testaLogicas() {
     for (i in 1..5) {
         // O kotlin identifica implicitamente o tipo da variavel, nesse caso, uma String
         val titular = "Rodrigo $i"
@@ -52,10 +80,7 @@ fun main() {
             println("Saldo da conta: $saldoConta")
             // Faz a contagem do i + 1 e evita looping infinito
             i++
-
         }
-
-//    testaCondicoes(saldoConta)
 
     }
 
