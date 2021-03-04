@@ -6,63 +6,63 @@ fun main() {
     val contaAlex = Conta()
     contaAlex.titular = "Alex"
     contaAlex.numeroConta = 1000
-    contaAlex.saldoConta = 200.0
+    contaAlex.setSaldo(200.0)
 
     println("Titular da conta: ${contaAlex.titular}")
     println("Numero da conta: ${contaAlex.numeroConta}")
-    println("Saldo da conta: ${contaAlex.saldoConta}")
+    println("Saldo da conta: ${contaAlex.getSaldo()}")
     println("---------------------------------------------------------")
 
     val contaFran = Conta()
     contaFran.titular = "Fran"
     contaFran.numeroConta = 1001
-    contaFran.saldoConta = 300.0
+    contaFran.setSaldo(300.0)
 
     println("Titular da conta: ${contaFran.titular}")
     println("Numero da conta: ${contaFran.numeroConta}")
-    println("Saldo da conta: ${contaFran.saldoConta}")
+    println("Saldo da conta: ${contaFran.getSaldo()}")
 
     println("---------------------------------------------------------")
     println("Depositando na conta do Alex:")
     contaAlex.deposita(50.0)
-    println("Saldo atualizado: ${contaAlex.saldoConta}")
+    println("Saldo atualizado: ${contaAlex.getSaldo()}")
     println("---------------------------------------------------------")
     println("Depositando na conta da Fran:")
     contaFran.deposita(70.0)
-    println("Saldo atualizado: ${contaFran.saldoConta}")
+    println("Saldo atualizado: ${contaFran.getSaldo()}")
     println("---------------------------------------------------------")
     println("Sacando da conta do Alex")
     contaAlex.saca(250.0)
-    println("Saldo atualizado: ${contaAlex.saldoConta}")
+    println("Saldo atualizado: ${contaAlex.getSaldo()}")
     println("---------------------------------------------------------")
     println("Sacando da conta da Fran")
     contaFran.saca(100.0)
-    println("Saldo atualizado: ${contaFran.saldoConta}")
+    println("Saldo atualizado: ${contaFran.getSaldo()}")
     println("---------------------------------------------------------")
     println("Teste saque em excesso Alex")
     contaAlex.saca(100.0)
-    println("Saldo atualizado: ${contaAlex.saldoConta}")
+    println("Saldo atualizado: ${contaAlex.getSaldo()}")
     println("---------------------------------------------------------")
     println("Teste saque em excesso Fran")
     contaFran.saca(500.0)
-    println("Saldo atualizado: ${contaFran.saldoConta}")
+    println("Saldo atualizado: ${contaFran.getSaldo()}")
     println("---------------------------------------------------------")
     println("Efetuando transferencia da conta da Fran para a do Alex")
     if (contaFran.transfere(100.0, contaAlex)) {
         println("Transferencia bem sucedida!")
-        println("Saldo Alex atualizado: ${contaAlex.saldoConta}")
-        println("Saldo Fran atualizado: ${contaFran.saldoConta}")
+        println("Saldo Alex atualizado: ${contaAlex.getSaldo()}")
+        println("Saldo Fran atualizado: ${contaFran.getSaldo()}")
     } else {
         println("Falha na transferencia!")
-        println("Saldo conta Alex: ${contaAlex.saldoConta}")
-        println("Saldo conta Fran: ${contaFran.saldoConta}")
+        println("Saldo conta Alex: ${contaAlex.getSaldo()}")
+        println("Saldo conta Fran: ${contaFran.getSaldo()}")
     }
 }
 
 class Conta() {
     var titular = ""
     var numeroConta = 0
-    var saldoConta = 0.0
+    private var saldoConta = 0.0
 
     fun deposita(valor: Double) {
         saldoConta += valor
@@ -77,12 +77,28 @@ class Conta() {
     fun transfere(valor: Double, destino: Conta): Boolean {
         if (saldoConta >= valor) {
             saldoConta -= valor
-            destino.saldoConta += valor
+            destino.deposita(valor)
             return true
         }
         return false
     }
+
+    fun getSaldo(): Double {
+        return saldoConta
+    }
+
+    fun setSaldo(valor: Double) {
+        saldoConta = valor
+    }
 }
+
+
+
+
+
+
+
+
 
 fun testaLacos() {
     for (i in 1..5) {
