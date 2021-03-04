@@ -20,4 +20,28 @@ fun main() {
     println("Titular: $titular")
     println("Número da conta: $numeroConta")
     println("Saldo da conta: $saldoConta")
+
+    if(saldoConta > 0.0) {
+        println("Saldo da conta é positivo!")
+    } else if(saldoConta == 0.0) {
+        println("Saldo da conta é neutro")
+    } else {
+        println("Saldo da conta é negativo")
+    }
+
+    // Funcao When, faz a mesma coisa que o if acima
+
+    when {
+        saldoConta > 0.0 -> {
+            println("Saldo da conta é positivo!")
+        }
+        saldoConta == 0.0 -> {
+            println("Saldo da conta é neutro")
+        }
+        else -> {
+            println("Saldo da conta é negativo")
+        }
+    }
+
+
 }
