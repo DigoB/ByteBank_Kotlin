@@ -22,6 +22,16 @@ fun main() {
     println("Numero da conta: ${contaFran.numeroConta}")
     println("Saldo da conta: ${contaFran.saldoConta}")
 
+    println("---------------------------------------------------------")
+    println("Depositando na conta do Alex:")
+    deposita(contaAlex, 50.0)
+    println("Saldo atualizado: ${contaAlex.saldoConta}")
+    println("---------------------------------------------------------")
+    println("Depositando na conta da Fran:")
+    deposita(contaFran, 70.0)
+    println("Saldo atualizado: ${contaFran.saldoConta}")
+
+
 }
 
 class Conta() {
@@ -30,7 +40,11 @@ class Conta() {
     var saldoConta = 0.0
 }
 
-fun testaLogicas() {
+fun deposita(conta: Conta, valor: Double) {
+    conta.saldoConta += valor
+}
+
+fun testaLacos() {
     for (i in 1..5) {
         // O kotlin identifica implicitamente o tipo da variavel, nesse caso, uma String
         val titular = "Rodrigo $i"
