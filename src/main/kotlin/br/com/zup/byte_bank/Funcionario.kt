@@ -5,7 +5,7 @@ open class Funcionario(
     val cpf: String,
     val salario: Double,
 ) {
-    fun bonificacao(): Double {
-        return salario * 0.1
-    }
+    // Função transformada em property, tem a mesma finalidade
+    open val bonificacao: Double get() = salario * 0.1
+
 }

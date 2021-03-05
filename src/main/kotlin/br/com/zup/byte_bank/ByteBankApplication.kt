@@ -4,7 +4,7 @@ fun main() {
     println("Bem vindo ao Byte Bank!")
 
     val funcionario = Funcionario(
-        nome = "Funcionario",
+        nome = "Funcionario ",
         cpf = "111.111.111-11",
         salario = 1000.0,
     )
@@ -13,7 +13,7 @@ fun main() {
     println("Cpf: ${funcionario.cpf}")
     println("Salario: ${funcionario.salario}")
 
-    println("Bonificacao: ${funcionario.bonificacao()}")
+    println("Bonificacao: ${funcionario.bonificacao}")
 
     println("---------------------------------------------------------")
 
@@ -27,7 +27,7 @@ fun main() {
     println ("Cpf: ${gerente.cpf}")
     println ("Salario: ${gerente.salario}")
 
-    println ("Bonificacao: ${gerente.bonificacao()}")
+    println ("Bonificacao: ${gerente.bonificacao}")
 
     if (gerente.autentica(1234)){
         println("Autenticação feita com sucesso!")
@@ -49,7 +49,7 @@ fun main() {
     println ("Cpf: ${diretor.cpf}")
     println ("Salario: ${diretor.salario}")
 
-    println ("Bonificacao: ${diretor.bonificacao()}")
+    println ("Bonificacao: ${diretor.bonificacao}")
     println("Valor PLR: ${diretor.plr}")
 
     if (gerente.autentica(4000)){
