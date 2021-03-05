@@ -3,7 +3,8 @@ package br.com.zup.byte_bank
 fun main() {
     println("Bem vindo ao Byte Bank!")
 
-    val contaAlex = Conta("Alex", 1000)
+    // É possivel deixar explicito os parametros do construtor, isso é chamado de Label. Ver conta da Fran
+    val contaAlex = Conta(titular = "Alex", numeroConta = 1000)
 
     contaAlex.deposita(200.0)
 
@@ -12,7 +13,8 @@ fun main() {
     println("Saldo da conta: ${contaAlex.saldoConta}")
     println("---------------------------------------------------------")
 
-    val contaFran = Conta("Fran", 1001)
+    // Ao deixar os parametros explicitos, é possivel alterar a ordem do construtor no Kotlin
+    val contaFran = Conta(numeroConta = 1001, titular = "Fran")
     contaFran.deposita(300.0)
 
     println("Titular da conta: ${contaFran.titular}")
@@ -45,7 +47,7 @@ fun main() {
     println("Saldo atualizado: ${contaFran.saldoConta}")
     println("---------------------------------------------------------")
     println("Efetuando transferencia da conta da Fran para a do Alex")
-    if (contaFran.transfere(100.0, contaAlex)) {
+    if (contaFran.transfere(valor = 100.0, destino = contaAlex)) {
         println("Transferencia bem sucedida!")
         println("Saldo Alex atualizado: ${contaAlex.saldoConta}")
         println("Saldo Fran atualizado: ${contaFran.saldoConta}")
@@ -58,10 +60,9 @@ fun main() {
 
 // No Kotlin, ao declarar o construtor, é possivel fazer diretamente declarando também as variaveis
 class Conta(
-    var titular: String,
-    var numeroConta: Int
+    val titular: String,
+    val numeroConta: Int
 ) {
-
     var saldoConta = 0.0
         // O kotlin trabalha com o bloqueio de set ou get tornando-os privados
         private set
@@ -88,10 +89,6 @@ class Conta(
         return false
     }
 }
-
-
-
-
 
 
 fun testaLacos() {
