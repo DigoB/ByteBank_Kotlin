@@ -1,7 +1,7 @@
 package br.com.zup.byte_bank
 
 // No Kotlin, ao declarar o construtor, é possivel fazer diretamente declarando também as variaveis
-class Conta(
+open class Conta(
     val titular: String,
     val numeroConta: Int
 ) {
@@ -16,7 +16,7 @@ class Conta(
         }
     }
 
-    fun saca(valor: Double) {
+    open fun saca(valor: Double) {
         if (saldoConta >= valor) {
             saldoConta -= valor
         }
