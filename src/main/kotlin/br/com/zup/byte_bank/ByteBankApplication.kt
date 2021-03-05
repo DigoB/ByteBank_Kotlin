@@ -3,9 +3,8 @@ package br.com.zup.byte_bank
 fun main() {
     println("Bem vindo ao Byte Bank!")
 
-    val contaAlex = Conta()
-    contaAlex.titular = "Alex"
-    contaAlex.numeroConta = 1000
+    val contaAlex = Conta("Alex", 1000)
+
     contaAlex.deposita(200.0)
 
     println("Titular da conta: ${contaAlex.titular}")
@@ -13,9 +12,7 @@ fun main() {
     println("Saldo da conta: ${contaAlex.saldoConta}")
     println("---------------------------------------------------------")
 
-    val contaFran = Conta()
-    contaFran.titular = "Fran"
-    contaFran.numeroConta = 1001
+    val contaFran = Conta("Fran", 1001)
     contaFran.deposita(300.0)
 
     println("Titular da conta: ${contaFran.titular}")
@@ -59,9 +56,12 @@ fun main() {
     }
 }
 
-class Conta() {
-    var titular = ""
-    var numeroConta = 0
+// No Kotlin, ao declarar o construtor, é possivel fazer diretamente declarando também as variaveis
+class Conta(
+    var titular: String,
+    var numeroConta: Int
+) {
+
     var saldoConta = 0.0
         // O kotlin trabalha com o bloqueio de set ou get tornando-os privados
         private set
@@ -88,9 +88,6 @@ class Conta() {
         return false
     }
 }
-
-
-
 
 
 
