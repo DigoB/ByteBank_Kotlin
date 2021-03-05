@@ -23,13 +23,13 @@ fun main() {
         salario = 2000.0,
         senha = 1234
     )
-    println ("Nome: ${gerente.nome}")
-    println ("Cpf: ${gerente.cpf}")
-    println ("Salario: ${gerente.salario}")
+    println("Nome: ${gerente.nome}")
+    println("Cpf: ${gerente.cpf}")
+    println("Salario: ${gerente.salario}")
 
-    println ("Bonificacao: ${gerente.bonificacao}")
+    println("Bonificacao: ${gerente.bonificacao}")
 
-    if (gerente.autentica(1234)){
+    if (gerente.autentica(1234)) {
         println("Autenticação feita com sucesso!")
     } else {
         println("Falha na autenticação!")
@@ -45,17 +45,25 @@ fun main() {
         plr = 200.0
     )
 
-    println ("Nome: ${diretor.nome}")
-    println ("Cpf: ${diretor.cpf}")
-    println ("Salario: ${diretor.salario}")
+    println("Nome: ${diretor.nome}")
+    println("Cpf: ${diretor.cpf}")
+    println("Salario: ${diretor.salario}")
 
-    println ("Bonificacao: ${diretor.bonificacao}")
+    println("Bonificacao: ${diretor.bonificacao}")
     println("Valor PLR: ${diretor.plr}")
 
-    if (gerente.autentica(4000)){
+    if (gerente.autentica(4000)) {
         println("Autenticação feita com sucesso!")
     } else {
         println("Falha na autenticação!")
     }
+
+    val calculadora = CalculadoraBonificacao()
+    calculadora.registra(funcionario)
+    calculadora.registra(gerente)
+    calculadora.registra(diretor)
+
+    println("Total das bonificacoes: ${calculadora.total}")
+
 
 }
