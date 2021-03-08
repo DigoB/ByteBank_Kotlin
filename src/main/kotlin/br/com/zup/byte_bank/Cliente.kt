@@ -1,21 +1,14 @@
 package br.com.zup.byte_bank
 
-abstract class FuncionarioAdmin(
-    nome: String,
-    cpf: String,
-    salario: Double,
+class Cliente(
+    val nome: String,
+    val cpf: String,
     val senha: Int
-) : Funcionario(
-    nome = nome,
-    cpf = cpf,
-    salario = salario
-), Autenticavel{
-
+) : Autenticavel {
     override fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {
             return true
         }
         return false
     }
-
 }
