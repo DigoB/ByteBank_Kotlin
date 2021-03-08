@@ -1,5 +1,10 @@
 package br.com.zup.byte_bank
 
+import br.com.zup.byte_bank.funcionarios.Cliente
+import br.com.zup.byte_bank.funcionarios.Diretor
+import br.com.zup.byte_bank.funcionarios.Gerente
+import br.com.zup.byte_bank.funcionarios.SistemaInterno
+
 fun testaAutenticacao() {
     val gerente = Gerente(
         nome = "Rodrigo",

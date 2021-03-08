@@ -1,14 +1,31 @@
 package br.com.zup.byte_bank
 
+import br.com.zup.byte_bank.contas.ContaCorrente
+import br.com.zup.byte_bank.contas.ContaPoupanca
+import br.com.zup.byte_bank.contas.ContaSalario
+import br.com.zup.byte_bank.funcionarios.Cliente
+
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
-        titular = "Alguem",
+        titular = Cliente(nome = "Rodrigo", cpf = "111.111.111-11", senha = 1),
         numeroConta = 1000
     )
 
-    val contaPoupanca = ContaPoupanca(titular = "OutroAlguem", numeroConta = 1001)
+    val contaPoupanca = ContaPoupanca(
+        Cliente(
+            nome = "Rodrigo",
+            cpf = "111.111.111-11",
+            senha = 1
+        ), numeroConta = 1001
+    )
 
-    val contaSalario = ContaSalario(titular = "Anyone", numeroConta = 1002)
+    val contaSalario = ContaSalario(
+        Cliente(
+            nome = "Alguem",
+            cpf = "222.222.222-22",
+            senha = 2
+        ), numeroConta = 1002
+    )
 
     contaCorrente.deposita(1000.0)
     contaPoupanca.deposita(1000.0)

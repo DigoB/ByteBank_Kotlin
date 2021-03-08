@@ -1,4 +1,6 @@
-package br.com.zup.byte_bank
+package br.com.zup.byte_bank.funcionarios
+
+import br.com.zup.byte_bank.funcionarios.FuncionarioAdmin
 
 class Gerente(
     nome: String,

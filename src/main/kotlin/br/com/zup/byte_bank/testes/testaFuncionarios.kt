@@ -1,5 +1,10 @@
 package br.com.zup.byte_bank
 
+import br.com.zup.byte_bank.funcionarios.Analista
+import br.com.zup.byte_bank.funcionarios.CalculadoraBonificacao
+import br.com.zup.byte_bank.funcionarios.Diretor
+import br.com.zup.byte_bank.funcionarios.Gerente
+
 fun testaFuncionarios() {
     val funcionario = Analista(
         nome = "Funcionario ",

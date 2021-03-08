@@ -1,8 +1,17 @@
 package br.com.zup.byte_bank
 
+import br.com.zup.byte_bank.contas.ContaCorrente
+import br.com.zup.byte_bank.funcionarios.Cliente
+
 fun testaComportamentosConta() {
     // É possivel deixar explicito os parametros do construtor, isso é chamado de Label. Ver conta da Fran
-    val contaAlex = ContaCorrente(titular = "Alex", numeroConta = 1000)
+    val contaAlex = ContaCorrente(
+        Cliente(
+            nome = "Rodrigo",
+            cpf = "111.111.111-11",
+            senha = 1
+        ), numeroConta = 1000
+    )
 
     contaAlex.deposita(200.0)
 
@@ -12,7 +21,9 @@ fun testaComportamentosConta() {
     println("---------------------------------------------------------")
 
     // Ao deixar os parametros explicitos, é possivel alterar a ordem do construtor no Kotlin
-    val contaFran = ContaCorrente(numeroConta = 1001, titular = "Fran")
+    val contaFran = ContaCorrente(numeroConta = 1001,
+        titular = Cliente(nome = "Alguem",cpf = "222.222.222-22",senha = 2)
+    )
     contaFran.deposita(300.0)
 
     println("Titular da conta: ${contaFran.titular}")

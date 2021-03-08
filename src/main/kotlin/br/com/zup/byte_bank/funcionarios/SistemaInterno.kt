@@ -1,4 +1,4 @@
-package br.com.zup.byte_bank
+package br.com.zup.byte_bank.funcionarios
 
 class SistemaInterno {
 

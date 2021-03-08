@@ -1,7 +1,10 @@
-package br.com.zup.byte_bank
+package br.com.zup.byte_bank.contas
+
+import br.com.zup.byte_bank.contas.Conta
+import br.com.zup.byte_bank.funcionarios.Cliente
 
 class ContaSalario(
-    titular: String,
+    titular: Cliente,
     numeroConta: Int
 ) : Conta(
     titular = titular,

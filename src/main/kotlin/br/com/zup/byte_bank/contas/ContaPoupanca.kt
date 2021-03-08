@@ -1,7 +1,9 @@
-package br.com.zup.byte_bank
+package br.com.zup.byte_bank.contas
+
+import br.com.zup.byte_bank.funcionarios.Cliente
 
 class ContaPoupanca(
-    titular: String,
+    titular: Cliente,
     numeroConta: Int
 ) : ContaTransferivel(
     titular = titular,

@@ -1,4 +1,4 @@
-package br.com.zup.byte_bank
+package br.com.zup.byte_bank.funcionarios
 
 abstract class FuncionarioAdmin(
     nome: String,
@@ -10,7 +10,7 @@ abstract class FuncionarioAdmin(
     cpf = cpf,
     salario = salario
 // Implementando a interface aqui na classe mae, as classes Diretor e Gerente nao precisam implementar novamente
-), Autenticavel{
+), Autenticavel {
 
     override fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {
