@@ -1,7 +1,5 @@
 package br.com.zup.byte_bank.contas
 
-import br.com.zup.byte_bank.funcionarios.Cliente
-
 // No Kotlin, ao declarar o construtor, é possivel fazer diretamente declarando também as variaveis
 abstract class Conta(
     val titular: Cliente,

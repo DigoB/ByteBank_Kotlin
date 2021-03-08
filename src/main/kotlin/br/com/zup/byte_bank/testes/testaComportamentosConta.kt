@@ -1,7 +1,7 @@
 package br.com.zup.byte_bank
 
 import br.com.zup.byte_bank.contas.ContaCorrente
-import br.com.zup.byte_bank.funcionarios.Cliente
+import br.com.zup.byte_bank.contas.Cliente
 
 fun testaComportamentosConta() {
     // É possivel deixar explicito os parametros do construtor, isso é chamado de Label. Ver conta da Fran

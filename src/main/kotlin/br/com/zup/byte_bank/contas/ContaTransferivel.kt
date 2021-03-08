@@ -1,7 +1,5 @@
 package br.com.zup.byte_bank.contas
 
-import br.com.zup.byte_bank.funcionarios.Cliente
-
 abstract class ContaTransferivel(
     titular: Cliente,
     numeroConta: Int

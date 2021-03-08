@@ -1,8 +1,5 @@
 package br.com.zup.byte_bank.contas
 
-import br.com.zup.byte_bank.contas.Conta
-import br.com.zup.byte_bank.funcionarios.Cliente
-
 class ContaSalario(
     titular: Cliente,
     numeroConta: Int

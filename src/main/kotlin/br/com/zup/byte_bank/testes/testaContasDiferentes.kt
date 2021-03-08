@@ -1,9 +1,6 @@
 package br.com.zup.byte_bank
 
-import br.com.zup.byte_bank.contas.ContaCorrente
-import br.com.zup.byte_bank.contas.ContaPoupanca
-import br.com.zup.byte_bank.contas.ContaSalario
-import br.com.zup.byte_bank.funcionarios.Cliente
+import br.com.zup.byte_bank.contas.*
 
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
@@ -15,7 +12,10 @@ fun testaContasDiferentes() {
         Cliente(
             nome = "Rodrigo",
             cpf = "111.111.111-11",
-            senha = 1
+            senha = 1,
+            endereco = Endereco(
+                logradouro = "Rua A",
+            )
         ), numeroConta = 1001
     )
 
@@ -26,6 +26,10 @@ fun testaContasDiferentes() {
             senha = 2
         ), numeroConta = 1002
     )
+
+    println("Nome do titular conta corrente: ${contaCorrente.titular.nome}")
+    println("Cpf titular conta corrente: ${contaCorrente.titular.cpf}")
+    println("Logradouro do titular conta poupanca: ${contaPoupanca.titular.endereco.logradouro}")
 
     contaCorrente.deposita(1000.0)
     contaPoupanca.deposita(1000.0)

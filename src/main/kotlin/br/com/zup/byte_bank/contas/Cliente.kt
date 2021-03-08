@@ -1,8 +1,11 @@
-package br.com.zup.byte_bank.funcionarios
+package br.com.zup.byte_bank.contas
+
+import br.com.zup.byte_bank.funcionarios.Autenticavel
 
 class Cliente(
     val nome: String,
     val cpf: String,
+    var endereco: Endereco = Endereco(),
     private val senha: Int
 ) : Autenticavel {
     override fun autentica(senha: Int): Boolean {
