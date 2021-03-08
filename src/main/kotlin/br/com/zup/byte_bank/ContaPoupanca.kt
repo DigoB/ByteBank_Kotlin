@@ -3,7 +3,7 @@ package br.com.zup.byte_bank
 class ContaPoupanca(
     titular: String,
     numeroConta: Int
-) : Conta(
+) : ContaTransferivel(
     titular = titular,
     numeroConta = numeroConta
 ) {

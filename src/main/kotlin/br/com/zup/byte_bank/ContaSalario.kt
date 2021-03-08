@@ -1,17 +1,15 @@
 package br.com.zup.byte_bank
 
-class ContaCorrente(
+class ContaSalario(
     titular: String,
     numeroConta: Int
-) : ContaTransferivel(
+) : Conta(
     titular = titular,
     numeroConta = numeroConta
 ) {
     override fun saca(valor: Double) {
-        val valorComTaxa = valor + 0.1
-        if (saldoConta >= valor) {
-            saldoConta -= valorComTaxa
+        if(this.saldoConta >= valor){
+            this.saldoConta -= valor
         }
-
     }
 }
