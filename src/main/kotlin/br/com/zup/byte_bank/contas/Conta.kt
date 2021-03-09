@@ -13,7 +13,10 @@ abstract class Conta(
     companion object Contador {
         var total = 0
             private set
-
+    }
+    init {
+        println("Criando conta...")
+        total++
     }
 
     fun deposita(valor: Double) {

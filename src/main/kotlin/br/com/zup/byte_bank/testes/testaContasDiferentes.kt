@@ -1,6 +1,7 @@
 package br.com.zup.byte_bank
 
 import br.com.zup.byte_bank.contas.*
+import br.com.zup.byte_bank.contas.Conta.Contador.total
 
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
@@ -25,6 +26,17 @@ fun testaContasDiferentes() {
             cpf = "222.222.222-22",
             senha = 2
         ), numeroConta = 1002
+    )
+
+    val outraContaPoupanca = ContaPoupanca(
+        Cliente(
+            nome = "Tal",
+            cpf = "111.111.111-11",
+            senha = 1,
+            endereco = Endereco(
+                logradouro = "Rua A",
+            )
+        ), numeroConta = 1003
     )
 
     println("Nome do titular conta corrente: ${contaCorrente.titular.nome}")
@@ -54,6 +66,11 @@ fun testaContasDiferentes() {
     contaCorrente.transfere(200.0, contaPoupanca)
     println("Saldo conta corrente após transferencia da conta poupança: ${contaCorrente.saldoConta}")
     println("Saldo conta poupança após transferencia da conta corrente: ${contaPoupanca.saldoConta}")
+
+    println("---------------------------------------------------------------")
+
+    println("Total de contas criadas:")
+    println(total)
 
 
 }
