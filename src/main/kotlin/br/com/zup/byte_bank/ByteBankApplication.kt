@@ -1,52 +1,52 @@
 package br.com.zup.byte_bank
 
-import br.com.zup.byte_bank.contas.*
-import br.com.zup.byte_bank.funcionarios.Autenticavel
+import br.com.zup.byte_bank.contas.Endereco
 
 fun main() {
-
-    // Correcao do push anterior, o que é considerado uma classe anonima é o object declaration, não expression
-
-//    val objeto = object : Autenticavel {
-//        val nome: String = "Alguem"
-//        val cpf: String = "111.111.111-11"
-//        val senha: Int = 1
-//
-//        override fun autentica(senha: Int) = this.senha == senha
-//    }
-//
-//    println("Nome cliente: ${objeto.nome}")
-//    println("Cpf cliente: ${objeto.cpf}")
-//    println("------------------------------------------------")
-
-
-    testaContasDiferentes()
-
-    val contaCorrente = ContaCorrente(
-        titular = Cliente(nome = "Rodrigo", cpf = "111.111.111-11", senha = 1),
-        numeroConta = 1000
+    val endereco = Endereco(
+        logradouro = "Rua Tal",
+        numero = 100,
+        complemento = "A",
+        bairro = "Algum",
+        cidade = "Alguma",
+        estado = "Algum",
+        cep = "000000-000"
+    )
+    val outroEndereco = Endereco(logradouro = "Rua Alguma",
+        numero = 1002,
+        complemento = "B",
+        bairro = "Tal",
+        cidade = "Tal",
+        estado = "Tal",
+        cep = "11111-111"
     )
 
-    val contaPoupanca = ContaPoupanca(
-        Cliente(
-            nome = "Rodrigo",
-            cpf = "111.111.111-11",
-            senha = 1,
-            endereco = Endereco(
-                logradouro = "Rua A",
-            )
-        ), numeroConta = 1001
-    )
+    println(endereco.equals(endereco))
+    println(outroEndereco.equals(outroEndereco))
+    println("---------------------------------------")
+    println(endereco.equals(outroEndereco))
+    println(outroEndereco.equals(endereco))
+    println("---------------------------------------")
+    println(endereco.hashCode())
+    println(outroEndereco.hashCode())
+    println("---------------------------------------")
+    println(endereco.toString())
+    println("---------------------------------------")
+    println(outroEndereco.toString())
 
-    val contaSalario = ContaSalario(
-        Cliente(
-            nome = "Alguem",
-            cpf = "222.222.222-22",
-            senha = 2
-        ), numeroConta = 1002
-    )
+    // O tipo "Any", reconhece e trabalha com todos os tipos
+    fun imprime(valor: Any) {
+        println(valor)
+    }
 
-    println("-----------------------------------------------")
-    println("Total de contas: ${Conta.total}")
+    // Exemplo do any, onde é usado Int, Double e String com o mesmo tipo
+    imprime(1)
+    imprime(1.0)
+    imprime("Teste")
 
+    // Dessa forma, é possivel utilizar o any para trazer as classes do projeto
+    val teste: Any = imprime(endereco)
+    println(teste)
 }
+
+
