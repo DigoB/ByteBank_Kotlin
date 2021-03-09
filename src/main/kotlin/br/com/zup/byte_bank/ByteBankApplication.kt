@@ -12,7 +12,8 @@ fun main() {
         estado = "Algum",
         cep = "000000-000"
     )
-    val outroEndereco = Endereco(logradouro = "Rua Alguma",
+    val outroEndereco = Endereco(
+        logradouro = "Rua Alguma",
         numero = 1002,
         complemento = "B",
         bairro = "Tal",
