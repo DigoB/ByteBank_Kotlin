@@ -2,6 +2,7 @@ package br.com.zup.byte_bank
 
 import br.com.zup.byte_bank.contas.ContaCorrente
 import br.com.zup.byte_bank.contas.Cliente
+import br.com.zup.byte_bank.exceptions.SaldoInsuficienteException
 
 fun testaComportamentosConta() {
     // É possivel deixar explicito os parametros do construtor, isso é chamado de Label. Ver conta da Fran
@@ -21,8 +22,9 @@ fun testaComportamentosConta() {
     println("---------------------------------------------------------")
 
     // Ao deixar os parametros explicitos, é possivel alterar a ordem do construtor no Kotlin
-    val contaFran = ContaCorrente(numeroConta = 1001,
-        titular = Cliente(nome = "Alguem",cpf = "222.222.222-22",senha = 2)
+    val contaFran = ContaCorrente(
+        numeroConta = 1001,
+        titular = Cliente(nome = "Alguem", cpf = "222.222.222-22", senha = 2)
     )
     contaFran.deposita(300.0)
 
@@ -56,13 +58,20 @@ fun testaComportamentosConta() {
     println("Saldo atualizado: ${contaFran.saldoConta}")
     println("---------------------------------------------------------")
     println("Efetuando transferencia da conta da Fran para a do Alex")
-    if (contaFran.transfere(valor = 100.0, destino = contaAlex)) {
+
+    try {
+        contaFran.transfere(valor = 100.0, destino = contaAlex)
         println("Transferencia bem sucedida!")
-        println("Saldo Alex atualizado: ${contaAlex.saldoConta}")
-        println("Saldo Fran atualizado: ${contaFran.saldoConta}")
-    } else {
-        println("Falha na transferencia!")
-        println("Saldo conta Alex: ${contaAlex.saldoConta}")
-        println("Saldo conta Fran: ${contaFran.saldoConta}")
+    } catch (e: SaldoInsuficienteException) {
+        println("Falha na transferencia")
+        e.message
+        e.printStackTrace()
     }
+
+    println("Saldo Alex atualizado: ${contaAlex.saldoConta}")
+    println("Saldo Fran atualizado: ${contaFran.saldoConta}")
+
+    println("Falha na transferencia!")
+    println("Saldo conta Alex: ${contaAlex.saldoConta}")
+    println("Saldo conta Fran: ${contaFran.saldoConta}")
 }

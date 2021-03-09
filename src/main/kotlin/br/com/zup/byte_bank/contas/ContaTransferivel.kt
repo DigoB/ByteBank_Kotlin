@@ -10,11 +10,10 @@ abstract class ContaTransferivel(
     numeroConta = numeroConta
 ) {
 
-    fun transfere(valor: Double, destino: Conta): Boolean {
+    fun transfere(valor: Double, destino: Conta) {
         if (saldoConta >= valor) {
             saldoConta -= valor
             destino.deposita(valor)
-            return true
         } else {
             throw SaldoInsuficienteException()
         }

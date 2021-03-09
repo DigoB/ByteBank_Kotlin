@@ -2,6 +2,7 @@ package br.com.zup.byte_bank
 
 fun main() {
 
+    testaComportamentosConta()
     println("----------------------------------------------------")
     println("Inicio da funcao main")
     funcao1()

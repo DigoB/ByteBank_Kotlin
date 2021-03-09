@@ -14,6 +14,7 @@ abstract class Conta(
         var total = 0
             private set
     }
+
     init {
         println("Criando conta...")
         total++
