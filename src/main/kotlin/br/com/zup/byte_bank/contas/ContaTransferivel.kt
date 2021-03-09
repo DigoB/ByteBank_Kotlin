@@ -1,5 +1,7 @@
 package br.com.zup.byte_bank.contas
 
+import br.com.zup.byte_bank.exceptions.SaldoInsuficienteException
+
 abstract class ContaTransferivel(
     titular: Cliente,
     numeroConta: Int
@@ -13,8 +15,9 @@ abstract class ContaTransferivel(
             saldoConta -= valor
             destino.deposita(valor)
             return true
+        } else {
+            throw SaldoInsuficienteException()
         }
-        return false
     }
 
 }
