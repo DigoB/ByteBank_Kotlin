@@ -1,9 +1,7 @@
 package br.com.zup.byte_bank
 
-import br.com.zup.byte_bank.testes.testaAumentoMinimoSalario
-import java.math.BigDecimal
-import java.math.RoundingMode
+import br.com.zup.byte_bank.testes.testaAumentoSalarios
 
 fun main() {
-    testaAumentoMinimoSalario()
+    testaAumentoSalarios()
 }
