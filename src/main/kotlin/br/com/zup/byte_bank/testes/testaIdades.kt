@@ -23,7 +23,7 @@ fun testaIdades() {
 
     // Criando array de idades, a cada novo dado deve aumentar o numero do tamanho do array
     val idades = IntArray(5)
-    idades[0] = 25
+    idades[0] = 16
     idades[1] = 19
     idades[2] = 33
     idades[3] = 20
@@ -54,13 +54,36 @@ fun testaIdades() {
         }
     }
 
+    // Faz o mesmo que a funcao acima automaticamente
+    val idades3: IntArray = intArrayOf(25, 19, 33, 20, 50, 55)
+    val maiorIdade4 = idades3.max()
+    println("Maior idade abreviada: $maiorIdade4")
+
+
     // "forEach" trabalha com o array em forma de função ao invés de loop como o "for"
-    var menorIdade3 = Int.MAX_VALUE
+    var menorIdade = Int.MAX_VALUE
     idades2.forEach { idade ->
-        if (idade < menorIdade3) {
-            menorIdade3 = idade
+        if (idade < menorIdade) {
+            menorIdade = idade
         }
     }
+    // Faz o mesmo que a funcao acima automaticamente
+    val idade5: IntArray = intArrayOf(25, 19, 33, 20, 50, 55)
+    val menorIdade2 = idades3.min()
+    println("Menor idade abreviada: $menorIdade2")
+
     println("Maior idade: $maiorIdade3")
-    println("Menor idade: $menorIdade3")
+    println("Menor idade: $menorIdade")
+
+    println("-----------------------------------------------------------")
+    println("-----------------------------------------------------------")
+
+    // Calcula a média dos valores do indice
+    val media = idades.average()
+    println("Média: $media")
+
+    println("-----------------------------------------------------------")
+    println("-----------------------------------------------------------")
+    val maioresDeIdade = idades.all { it > 18 }
+    println("Todos Maiores? $maioresDeIdade")
 }
