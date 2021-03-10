@@ -2,6 +2,7 @@ package br.com.zup.byte_bank
 
 import br.com.zup.byte_bank.contas.ContaCorrente
 import br.com.zup.byte_bank.contas.Cliente
+import br.com.zup.byte_bank.exceptions.FalhaAutenticacaoException
 import br.com.zup.byte_bank.exceptions.SaldoInsuficienteException
 
 fun testaComportamentosConta() {
@@ -42,7 +43,7 @@ fun testaComportamentosConta() {
     println("Saldo atualizado: ${contaFran.saldoConta}")
     println("---------------------------------------------------------")
     println("Sacando da conta do Alex")
-    contaAlex.saca(250.0)
+    contaAlex.saca(50.0)
     println("Saldo atualizado: ${contaAlex.saldoConta}")
     println("---------------------------------------------------------")
     println("Sacando da conta da Fran")
@@ -60,9 +61,13 @@ fun testaComportamentosConta() {
     println("Efetuando transferencia da conta da Fran para a do Alex")
 
     try {
-        contaFran.transfere(valor = 100.0, destino = contaAlex)
+        contaFran.transfere(valor = 100.0, destino = contaAlex, senha = 1)
         println("Transferencia bem sucedida!")
     } catch (e: SaldoInsuficienteException) {
+        println("Saldo insuficiente!")
+        e.message
+        e.printStackTrace()
+    } catch (e: FalhaAutenticacaoException) {
         println("Falha na transferencia")
         e.message
         e.printStackTrace()

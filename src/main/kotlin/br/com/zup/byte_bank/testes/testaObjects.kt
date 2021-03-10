@@ -1,7 +1,6 @@
 package br.com.zup.byte_bank.testes
 
 import br.com.zup.byte_bank.contas.*
-import br.com.zup.byte_bank.testaContasDiferentes
 
 fun testaObjects() {
     // Correcao do push anterior, o que é considerado uma classe anonima é o object declaration, não expression

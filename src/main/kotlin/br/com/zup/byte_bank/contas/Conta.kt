@@ -1,12 +1,18 @@
 package br.com.zup.byte_bank.contas
 
+import br.com.zup.byte_bank.funcionarios.Autenticavel
+
 // No Kotlin, ao declarar o construtor, é possivel fazer diretamente declarando também as variaveis
 abstract class Conta(
     val titular: Cliente,
     val numeroConta: Int
-) {
+) : Autenticavel{
     var saldoConta = 0.0
         protected set
+
+    override fun autentica(senha: Int): Boolean {
+        return titular.autentica(senha)
+    }
 
     // Companion Object é uma object declaration que faz possivel com que o objeto seja acessivel nas classes filhas
     // porém, só pode ser alterado na classe mae

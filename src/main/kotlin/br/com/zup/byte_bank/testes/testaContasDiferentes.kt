@@ -1,4 +1,4 @@
-package br.com.zup.byte_bank
+package br.com.zup.byte_bank.testes
 
 import br.com.zup.byte_bank.contas.*
 import br.com.zup.byte_bank.contas.Conta.Contador.total
@@ -46,24 +46,28 @@ fun testaContasDiferentes() {
     contaCorrente.deposita(1000.0)
     contaPoupanca.deposita(1000.0)
     contaSalario.deposita(1000.0)
+    outraContaPoupanca.deposita(1000.0)
 
     println("Saldo conta corrente: ${contaCorrente.saldoConta}")
     println("Saldo conta corrente: ${contaPoupanca.saldoConta}")
     println("Saldo conta salario: ${contaSalario.saldoConta}")
+    println("Saldo outra conta poupanca: ${outraContaPoupanca.saldoConta}")
 
     println("---------------------------------------------------------------")
 
     contaCorrente.saca(100.0)
     contaPoupanca.saca(100.0)
     contaSalario.saca(100.0)
+    outraContaPoupanca.saca(50.0)
 
     println("Saldo conta corrente apos saque: ${contaCorrente.saldoConta}")
     println("Saldo conta poupança apos saque: ${contaPoupanca.saldoConta}")
     println("Saldo conta salario apos saque: ${contaSalario.saldoConta}")
+    println("Saldo outra conta poupanca apos saque: ${outraContaPoupanca.saldoConta}")
 
     println("---------------------------------------------------------------")
 
-    contaCorrente.transfere(200.0, contaPoupanca)
+    contaCorrente.transfere(200.0, contaPoupanca, senha = 2)
     println("Saldo conta corrente após transferencia da conta poupança: ${contaCorrente.saldoConta}")
     println("Saldo conta poupança após transferencia da conta corrente: ${contaPoupanca.saldoConta}")
 
