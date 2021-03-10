@@ -33,14 +33,29 @@ fun testaAumentoMinimoSalario() {
         // setScale faz a limitação e arredondamento de casas decimais
         .map { salario ->
             // Logica para aumento minimo de salario de 500.00
-            if (salario < "5000".toBigDecimal()) {
-                salario + "500".toBigDecimal()
-            } else {
-                salario * aumento.setScale(2, RoundingMode.UP)
-            }
+            calculaAumento(salario, aumento)
         }
         .toTypedArray()
 
     println("---------------------------------------------------------------")
     println(salariosComAumento.contentToString())
+
+    val somaDosSalarios = salariosComAumento.somatoria()
+    println("---------------------------------------------------------------")
+    println("Soma de todos os salarios: $somaDosSalarios")
+}
+
+private fun calculaAumento(salario: BigDecimal, aumento: BigDecimal): BigDecimal =
+    if (salario < "5000".toBigDecimal()) {
+        salario + "500".toBigDecimal()
+    } else {
+        salario * aumento.setScale(2, RoundingMode.UP)
+    }
+
+// Função criada para fazer a soma dos valores do array em BigDecimal
+fun Array<BigDecimal>.somatoria(): BigDecimal {
+    // "reduce", reduz todos os valores do array em um valor unico. Implementado para fazer isso por uma soma de valores
+    return this.reduce { acumulador, valor ->
+        acumulador + valor
+    }
 }
