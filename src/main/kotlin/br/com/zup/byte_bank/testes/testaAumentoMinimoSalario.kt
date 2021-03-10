@@ -43,6 +43,14 @@ fun testaAumentoMinimoSalario() {
     val somaDosSalarios = salariosComAumento.somatoria()
     println("---------------------------------------------------------------")
     println("Soma de todos os salarios: $somaDosSalarios")
+
+    // Função para calcular o total de gastos com o aumento no período de 6 meses
+    val meses = 6.toBigDecimal()
+    // O fold, diferentemente do reduce, precisa receber um valor inicial, nesse caso "somaDosSalarios"
+    val gastoTotal = salariosComAumento.fold(somaDosSalarios) { acumulador, valorSalario ->
+        acumulador + (valorSalario * meses).setScale(2,RoundingMode.UP)
+    }
+    println("Gasto total em 6 meses: $gastoTotal")
 }
 
 private fun calculaAumento(salario: BigDecimal, aumento: BigDecimal): BigDecimal =
