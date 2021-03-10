@@ -2,6 +2,7 @@ package br.com.zup.byte_bank.contas
 
 import br.com.zup.byte_bank.exceptions.FalhaAutenticacaoException
 import br.com.zup.byte_bank.exceptions.SaldoInsuficienteException
+import java.lang.RuntimeException
 
 abstract class ContaTransferivel(
     titular: Cliente,
@@ -21,6 +22,7 @@ abstract class ContaTransferivel(
         if (!autentica(senha)) {
             throw FalhaAutenticacaoException(mensagem = "Senha incorreta!")
         }
+        throw RuntimeException()
     }
 
 }
