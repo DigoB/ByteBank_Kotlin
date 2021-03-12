@@ -23,4 +23,16 @@ fun main() {
     testaFunctionTypeReferencia()
     testaFunctionTypeClasse()
 
+    println("------------------------------------------------------")
+
+    println("Calculo de bonificação com lambda usando Label")
+
+    val calculadoraBonificacao: (salario: Double) -> Double = lambda@{ salario ->
+        if (salario > 1000.0) {
+            return@lambda salario + 50.0
+        }
+        salario + 100.0
+    }
+    println(calculadoraBonificacao(1100.0))
+
 }
