@@ -1,6 +1,6 @@
 package br.com.zup.byte_bank.contas
 
-class Endereco(
+data class Endereco(
     var logradouro: String = "",
     var numero: Int = 0,
     var complemento: String = "",
