@@ -56,7 +56,7 @@ fun testaIdades() {
 
     // Faz o mesmo que a funcao acima automaticamente
     val idades3: IntArray = intArrayOf(25, 19, 33, 20, 50, 55)
-    val maiorIdade4 = idades3.max()
+    val maiorIdade4 = idades3.maxOrNull()
     println("Maior idade abreviada: $maiorIdade4")
 
 
@@ -69,7 +69,7 @@ fun testaIdades() {
     }
     // Faz o mesmo que a funcao acima automaticamente
     val idade5: IntArray = intArrayOf(25, 19, 33, 20, 50, 55)
-    val menorIdade2 = idades3.min()
+    val menorIdade2 = idade5.minOrNull()
     println("Menor idade abreviada: $menorIdade2")
 
     println("Maior idade: $maiorIdade3")
