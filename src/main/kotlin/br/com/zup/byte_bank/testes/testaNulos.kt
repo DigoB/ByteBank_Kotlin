@@ -14,7 +14,7 @@ fun testaNulos() {
 
         // ?: Elvis Operator, força o programa a nao devolver nulo, vai devolver o valor da variável
             // ou o numero zero caso seja nulo
-            it.complemento?.length ?: throw IllegalStateException("Complemento nao pode ser nulo")
+            it.complemento.length ?: throw IllegalStateException("Complemento nao pode ser nulo")
         println(tamanhoComplemento)
     }
 
